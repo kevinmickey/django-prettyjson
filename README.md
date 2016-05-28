@@ -18,7 +18,7 @@ pip install django-prettyjson
 
 ## Configuration
 
-Add `prettyjson` to `INSTALLED_APPS` in `settings.py`:
+Add `'prettyjson'` to `INSTALLED_APPS` in `settings.py`:
 
 ```python
 INSTALLED_APPS = (
