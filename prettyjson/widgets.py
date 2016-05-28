@@ -4,10 +4,10 @@ from django.forms import widgets
 class PrettyJSONWidget(widgets.Textarea):
     def render(self, name, value, attrs=None):
         html = super(PrettyJSONWidget, self).render(name, value, attrs)
-        return ('<div class="jsonwidget"><p><button class="parseraw"'
-                'type="button">Show parsed</button> <button class="parsed"'
-                'type="button">Collapse all</button> <button class="parsed"'
-                'type="button">Expand all</button></p>'+html+'<div'
+        return ('<div class="jsonwidget"><p><button class="parseraw" '
+                'type="button">Show parsed</button> <button class="parsed" '
+                'type="button">Collapse all</button> <button class="parsed" '
+                'type="button">Expand all</button></p>'+html+'<div '
                 'class="parsed"></div></div>')
 
     class Media:
