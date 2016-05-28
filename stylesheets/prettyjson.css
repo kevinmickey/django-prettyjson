@@ -4,11 +4,11 @@ form .jsonview ul {
 }
 .jsonwidget {
   font-size: 1em;
+  line-height: 1.2em;
 }
 .jsonwidget textarea {
   font-size: initial;
   font-size: 1em;
-  line-height: 1.1;
 }
 .parsed {
   display: none;
