@@ -9,15 +9,14 @@ $('.parseraw').click(function(e){
   if ($(e.target).text() === 'Show parsed') {
     var validjson = true;
     try {
-        // get more forgiving check here
-        //JSON.parse(rawarea.val());
+        JSON.parse(rawarea.val());
     } catch (e) {
       validjson = false;
     }
     if (validjson) {
       rawarea.hide();
       widget.find('.parsed').show()
-      parsedarea.JSONView(rawarea.val(), {strict: false}).css({
+      parsedarea.JSONView(rawarea.val(), {strict: true}).css({
         width: rawarea.css('width'),
         height: rawarea.css('height'),
         overflow: "auto",
