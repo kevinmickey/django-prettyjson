@@ -22,6 +22,8 @@ Usage
 
 In a form or admin of a model, enable a pretty JSON viewer for a particular field::
 
+.. code-block:: python
+
     import prettyjson
 
     class JsonForm(forms.ModelForm):
@@ -36,6 +38,8 @@ In a form or admin of a model, enable a pretty JSON viewer for a particular fiel
       form = JsonAdminForm
 
 Enable pretty JSON viewer for every JSONField of a model::
+
+.. code-block:: python
 
     class JsonAdmin(admin.ModelAdmin):
       formfield_overrides = {
