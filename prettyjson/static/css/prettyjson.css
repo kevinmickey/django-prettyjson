@@ -1,0 +1,7 @@
+form .jsonview ul {
+  margin: 0 0 0 2em;
+  padding: 0;
+}
+.parsed {
+  display: none;
+}
