@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>django-prettyjson by kevinmickey</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>django-prettyjson</h1>
+        <p>Enables pretty JSON viewer in Django forms, admin, or templates</p>
+
+        <p class="view"><a href="https://github.com/kevinmickey/django-prettyjson">View the Project on GitHub <small>kevinmickey/django-prettyjson</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kevinmickey/django-prettyjson/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kevinmickey/django-prettyjson/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kevinmickey/django-prettyjson">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="django-prettyjson" class="anchor" href="#django-prettyjson" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>django-prettyjson</h1>
+
+<p><a href="https://badge.fury.io/py/django-prettyjson"><img src="https://badge.fury.io/py/django-prettyjson.png" alt="PyPi Version"></a> <a href="https://travis-ci.org/kevinmickey/django-prettyjson"><img src="https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master" alt="Build Status"></a></p>
+
+<p>Enables pretty JSON viewer in Django forms, admin, or templates</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>At the command line::</p>
+
+<div class="highlight highlight-source-shell"><pre>pip install django-prettyjson</pre></div>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>In a form or admin of a model, enable a pretty JSON viewer for a particular field:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> prettyjson
+
+<span class="pl-k">class</span> <span class="pl-en">JsonForm</span>(<span class="pl-e">forms</span>.<span class="pl-e">ModelForm</span>):
+  <span class="pl-k">class</span> <span class="pl-en">Meta</span>:
+    model <span class="pl-k">=</span> Test
+    fields <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>__all__<span class="pl-pds">'</span></span>
+    widgets <span class="pl-k">=</span> {
+      <span class="pl-s"><span class="pl-pds">'</span>myjsonfield<span class="pl-pds">'</span></span>: PrettyJSONWidget(),
+    }
+
+<span class="pl-k">class</span> <span class="pl-en">JsonAdmin</span>(<span class="pl-e">admin</span>.<span class="pl-e">ModelAdmin</span>):
+  form <span class="pl-k">=</span> JsonAdminForm</pre></div>
+
+<p>Enable pretty JSON viewer for every JSONField of a model:</p>
+
+<div class="highlight highlight-source-python"><pre><span class="pl-k">class</span> <span class="pl-en">JsonAdmin</span>(<span class="pl-e">admin</span>.<span class="pl-e">ModelAdmin</span>):
+  formfield_overrides <span class="pl-k">=</span> {
+    jsonfield.JSONField: {<span class="pl-s"><span class="pl-pds">'</span>widget<span class="pl-pds">'</span></span>: PrettyJSONWidget }
+  }</pre></div>
+
+<p>In templates, you can also enable a pretty JSON viewer.  Use the <code>prettyjson</code> template tag with a string JSON or with objects (dicts, QuerySets, etc.) that can be serialized to a JSON.  Note that the template tag must be loaded using <code>{% load prettyjson %}</code>.  It also has CSS and JS that must be included using <code>{% prettyjson_setup %}</code>.</p>
+
+<div class="highlight highlight-text-html-django"><pre><span class="pl-e">{%</span> <span class="pl-k">extends</span> <span class="pl-s">"base.html"</span> <span class="pl-e">%}</span>
+
+<span class="pl-e">{%</span> <span class="pl-k">load</span> <span class="pl-s">prettyjson</span> <span class="pl-e">%}</span>
+
+<span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">header</span> <span class="pl-e">%}</span>
+  {{ block.super }}
+  <span class="pl-e">{%</span> <span class="pl-s">prettyjson_setup</span> <span class="pl-e">%}</span>
+<span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span>
+
+<span class="pl-e">{%</span> <span class="pl-k">block</span> <span class="pl-s">content</span> <span class="pl-e">%}</span>
+  <span class="pl-e">{%</span> <span class="pl-s">prettyjson</span> <span class="pl-s">myqueryset</span> <span class="pl-e">%}</span>
+  <span class="pl-e">{%</span> <span class="pl-s">prettyjson</span> <span class="pl-s">mydict</span> <span class="pl-e">%}</span>
+  <span class="pl-e">{%</span> <span class="pl-s">prettyjson</span> <span class="pl-s">'{"hey": "guy","anumber": 243,"anobject": {"whoa": "nuts","anarray": [1,2,"thr&lt;h1&gt;ee"], "more":"stuff"},"awesome": true,"bogus": false,"meaning": null, "japanese":"明日がある。", "link": "http://jsonview.com", "notLink": "http://jsonview.com is great"}'</span> <span class="pl-e">%}</span>
+  <span class="pl-e">{%</span> <span class="pl-s">prettyjson</span> <span class="pl-s">'{}'</span> <span class="pl-e">%}</span>
+<span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span></pre></div>
+
+<h2>
+<a id="running-tests" class="anchor" href="#running-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Tests</h2>
+
+<p>In development.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">source</span> <span class="pl-k">&lt;</span>YOURVIRTUALENV<span class="pl-k">&gt;</span>/bin/activate
+(myenv) $ pip install -r requirements-test.txt
+(myenv) $ python runtests.py</pre></div>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Dependencies, parts of code, and/or sources of inspiration:</p>
+
+<ul>
+<li><a href="https://github.com/yesmeck/jquery-jsonview">jQuery JSONView</a></li>
+<li><a href="https://github.com/bradjasper/django-jsonfield/">django-jsonfield</a></li>
+</ul>
+
+<p>Tools used in developing, testing, and/or rendering this package:</p>
+
+<ul>
+<li><a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a></li>
+<li><a href="https://github.com/pydanny/cookiecutter-djangopackage">cookiecutter-djangopackage</a></li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kevinmickey">kevinmickey</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
