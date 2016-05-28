@@ -2,12 +2,11 @@ form .jsonview ul {
   margin: 0 0 0 2em;
   padding: 0;
 }
-.jsonwidget textarea {
+.jsonwidget {
+  font-size: initial;
   font-size: 1em;
+  line-height: 1;
 }
 .parsed {
   display: none;
-}
-div.parsed {
-  font-size: 1em;
 }
