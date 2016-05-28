@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="node_modules/jquery-jsonview/dist/jquery.jsonview.css">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
+    <link rel="stylesheet" href="stylesheets/prettyjson.css">
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -35,6 +36,21 @@
 <p><a href="https://badge.fury.io/py/django-prettyjson"><img src="https://badge.fury.io/py/django-prettyjson.png" alt="PyPi Version"></a> <a href="https://travis-ci.org/kevinmickey/django-prettyjson"><img src="https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master" alt="Build Status"></a></p>
 
 <p>Enables pretty JSON viewer in Django forms, admin, or templates</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<div class="jsonwidget">
+<p>
+<button class="parseraw" type="button">Show parsed</button>
+<button class="parsed" type="button">Collapse all</button>
+<button class="parsed" type="button">Expand all</button>
+</p>
+<textarea cols="40" rows="10">
+{"hey": "guy","anumber": 243,"anobject": {"whoa": "nuts","anarray": [1,2,"thr<h1>ee"], "more":"stuff"},"awesome": true,"bogus": false,"meaning": null, "japanese":"明日がある。", "link": "http://jsonview.com", "notLink": "http://jsonview.com is great"}
+</textarea>
+<div class="parsed"></div></div>
+
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
@@ -120,5 +136,6 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="javascripts/scale.fix.js"></script>
     <script src="node_modules/jquery/dist/jquery.jsonview.js"></script>
+    <script src="javascripts/prettyjson.js"></script>
   </body>
 </html>
