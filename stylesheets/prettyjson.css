@@ -3,11 +3,11 @@ form .jsonview ul {
   padding: 0;
 }
 .jsonwidget textarea {
-  font-size: 1rem;
+  font-size: 1em;
 }
 .parsed {
   display: none;
 }
 div.parsed {
-  font-size: 1rem;
+  font-size: 1em;
 }
