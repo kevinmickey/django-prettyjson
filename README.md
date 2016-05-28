@@ -16,6 +16,17 @@ At the command line:
 pip install django-prettyjson
 ```
 
+## Configuration
+
+Add `prettyjson` to `INSTALLED_APPS` in `settings.py`:
+
+```python
+INSTALLED_APPS = (
+  ...,
+  'prettyjson',
+)
+```
+
 ## Usage
 
 In a form or admin of a model, enable a pretty JSON viewer for a particular field:
