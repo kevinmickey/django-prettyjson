@@ -9,7 +9,11 @@ form .jsonview ul {
 .jsonwidget textarea {
   font-size: initial;
   font-size: 1em;
+  border: 1px solid #333;
 }
 .parsed {
   display: none;
+}
+div.parsed {
+  border: 1px solid #333;
 }
