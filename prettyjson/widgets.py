@@ -12,8 +12,8 @@ class PrettyJSONWidget(widgets.Textarea):
 
     class Media:
         # http://stackoverflow.com/questions/7188563/django-admin-jquery-namespace
-        js = ('js/dj.jquery.jsonview.min.js', 'js/renderjsonview.js', )
+        js = ('prettyjson/js/dj.jquery.jsonview.min.js', 'prettyjson/js/prettyjson.js', )
         # https://docs.djangoproject.com/en/1.9/topics/forms/media/#css
         css = {
-            'all': ('css/jquery.jsonview.min.css', 'css/jsonview.css', )
+            'all': ('prettyjson/css/jquery.jsonview.min.css', 'prettyjson/css/prettyjson.css', )
         }
