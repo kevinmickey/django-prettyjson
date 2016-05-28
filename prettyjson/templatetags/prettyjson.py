@@ -9,7 +9,7 @@ from django.utils.safestring import mark_safe
 
 import six
 
-from ..admin import PrettyJSONWidget
+from ..widgets import PrettyJSONWidget
 from ..encoders import JSONEncoder
 
 register = Library()
