@@ -10,7 +10,7 @@ See http://kevinmickey.github.io/django-prettyjson
 
 ## Installation
 
-At the command line::
+At the command line:
 
 ```sh
 pip install django-prettyjson
