@@ -43,7 +43,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 setup(
     name='django-prettyjson',
     version=version,
-    description="""Prettify JSON in Django""",
+    description="""Enables pretty JSON viewer in Django forms, admin, or templates""",
     long_description=readme + '\n\n' + history,
     author='Kevin Mickey',
     author_email='kwmickey@gmail.com',

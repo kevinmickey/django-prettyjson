@@ -8,7 +8,7 @@ django-prettyjson
 .. image:: https://travis-ci.org/kevinmickey/django-prettyjson.png?branch=master
     :target: https://travis-ci.org/kevinmickey/django-prettyjson
 
-Prettify JSON in Django
+Enables pretty JSON viewer in Django forms, admin, or templates
 
 Installation
 ------------
@@ -20,7 +20,7 @@ At the command line::
 Usage
 -----
 
-Then use it in a project::
+In a form or admin of a model, enable a pretty JSON viewer for a particular field::
 
     import prettyjson
 
@@ -29,40 +29,43 @@ Then use it in a project::
         model = Test
         fields = '__all__'
         widgets = {
-          'json': PrettyJSONWidget(),
+          'myjsonfield': PrettyJSONWidget(),
         }
 
     class JsonAdmin(admin.ModelAdmin):
       form = JsonAdminForm
+
+Enable pretty JSON viewer for every JSONField of a model::
 
     class JsonAdmin(admin.ModelAdmin):
       formfield_overrides = {
         jsonfield.JSONField: {'widget': PrettyJSONWidget }
       }
 
+In templates, you can also enable a pretty JSON viewer.  Use the ``prettyjson`` template tag with a string JSON or with objects (dicts, QuerySets, etc.) that can be serialized to a JSON.  Note that the template tag must be loaded using ``{% load prettyjson %}``.  It also has CSS and JS that must be included using ``{% prettyjson_setup %}``.
+
+.. code-block:: htmldjango
+
     {% extends "base.html" %}
 
     {% load prettyjson %}
 
-    {% block css %}
+    {% block header %}
     {{ block.super }}
     {% prettyjson_setup %}
     {% endblock %}
 
     {% block content %}
+    {% prettyjson myqueryset %}
+    {% prettyjson mydict %}
     {% prettyjson '{"hey": "guy","anumber": 243,"anobject": {"whoa": "nuts","anarray": [1,2,"thr<h1>ee"], "more":"stuff"},"awesome": true,"bogus": false,"meaning": null, "japanese":"明日がある。", "link": "http://jsonview.com", "notLink": "http://jsonview.com is great"}' %}
     {% prettyjson '{}' %}
     {% endblock %}
 
-Features
---------
-
-* TODO
-
 Running Tests
 --------------
 
-Does the code actually work?
+In development.
 
 ::
 
@@ -73,10 +76,17 @@ Does the code actually work?
 Credits
 ---------
 
-Tools used in rendering this package:
+Dependencies, parts of code, and/or sources of inspiration:
+* `jQuery JSONView`_
+* `django-json-field`_
+
+
+Tools used in developing, testing, and/or rendering this package:
 
 *  Cookiecutter_
 *  `cookiecutter-djangopackage`_
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`cookiecutter-djangopackage`: https://github.com/pydanny/cookiecutter-djangopackage
+.. _`jQuery JSONView`: https://github.com/yesmeck/jquery-jsonview
+.. _`django-json-field`: https://github.com/bradjasper/django-jsonfield/
