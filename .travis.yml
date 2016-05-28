@@ -3,16 +3,33 @@
 language: python
 
 python:
-  - "3.5"
-  - "3.4"
-  - "3.3"
   - "2.7"
+  - "3.3"
+  - "3.4"
+  - "3.5"
+
+
+env:
+  matrix:
+   - DJANGO="Django<1.9"
+   - DJANGO="Django<1.10"
+
+cache: pip
+
+matrix:
+  exclude:
+    - python: "3.3"
+      env: DJANGO="Django<1.10"
+      # Django 1.9+ does not support python 3.3
+
 
 before_install:
   - pip install codecov
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -r requirements-test.txt
+install:
+  - pip install "$DJANGO"
+  - pip install -r requirements-test.txt
 
 # command to run tests using coverage, e.g. python setup.py test
 script: coverage run --source prettyjson runtests.py

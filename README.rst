@@ -81,6 +81,7 @@ Credits
 ---------
 
 Dependencies, parts of code, and/or sources of inspiration:
+
 * `jQuery JSONView`_
 * `django-json-field`_
 
