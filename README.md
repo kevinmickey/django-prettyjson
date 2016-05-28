@@ -1,7 +1,3 @@
----
-title: django-prettyjson
----
-
 # django-prettyjson
 
 [![PyPi Version](https://badge.fury.io/py/django-prettyjson.png)](https://badge.fury.io/py/django-prettyjson) [![Build Status](https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master)](https://travis-ci.org/kevinmickey/django-prettyjson)
