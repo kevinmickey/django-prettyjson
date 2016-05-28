@@ -1,6 +1,4 @@
 (function($){
-  if (typeof(django.renderJSONView) !== 'undefined') return;
-  django.renderJSONView = true;
 $( document ).ready(function() {
 $('.parseraw').click(function(e){
   var widget = $(e.target).closest('.jsonwidget');
