@@ -1,10 +1,16 @@
+---
+title: django-prettyjson
+---
+
 # django-prettyjson
 
-[![PyPi Version](https://badge.fury.io/py/django-prettyjson.png)](https://badge.fury.io/py/django-prettyjson)
-
-[![Build Status](https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master)](https://travis-ci.org/kevinmickey/django-prettyjson)
+[![PyPi Version](https://badge.fury.io/py/django-prettyjson.png)](https://badge.fury.io/py/django-prettyjson) [![Build Status](https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master)](https://travis-ci.org/kevinmickey/django-prettyjson)
 
 Enables pretty JSON viewer in Django forms, admin, or templates
+
+## Demo
+
+See http://kevinmickey.github.io/django-prettyjson
 
 ## Installation
 
