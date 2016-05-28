@@ -20,7 +20,7 @@ At the command line::
 Usage
 -----
 
-In a form or admin of a model, enable a pretty JSON viewer for a particular field::
+In a form or admin of a model, enable a pretty JSON viewer for a particular field:
 
 .. code-block:: python
 
@@ -37,7 +37,7 @@ In a form or admin of a model, enable a pretty JSON viewer for a particular fiel
     class JsonAdmin(admin.ModelAdmin):
       form = JsonAdminForm
 
-Enable pretty JSON viewer for every JSONField of a model::
+Enable pretty JSON viewer for every JSONField of a model:
 
 .. code-block:: python
 
