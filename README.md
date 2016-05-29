@@ -32,7 +32,7 @@ INSTALLED_APPS = (
 In a form or admin of a model, enable a pretty JSON viewer for a particular field:
 
 ```python
-import prettyjson
+from prettyjson import PrettyJSONWidget
 
 class JsonForm(forms.ModelForm):
   class Meta:
@@ -43,15 +43,17 @@ class JsonForm(forms.ModelForm):
     }
 
 class JsonAdmin(admin.ModelAdmin):
-  form = JsonAdminForm
+  form = JsonForm
 ```
 
 Enable pretty JSON viewer for every JSONField of a model:
 
 ```python
+from django.contrib.postgres.fields import JSONField
+
 class JsonAdmin(admin.ModelAdmin):
   formfield_overrides = {
-    jsonfield.JSONField: {'widget': PrettyJSONWidget }
+    JSONField: {'widget': PrettyJSONWidget }
   }
 ```
 
@@ -75,6 +77,8 @@ In templates, you can also enable a pretty JSON viewer.  Use the `prettyjson` te
 {% endblock %}
 ```
 
+The setup includes jQuery, loaded as django.jQuery to avoid namespace conflict.  If your page already includes jQuery, use `{% prettyjson_setup jquery=False %}` to avoid loading jQuery a second time.
+
 ## Running Tests
 
 In development.
@@ -90,8 +94,8 @@ source <YOURVIRTUALENV>/bin/activate
 Dependencies, parts of code, and/or sources of inspiration:
 
 * [jQuery JSONView](https://github.com/yesmeck/jquery-jsonview)
-* [django-jsonfield](https://github.com/bradjasper/django-jsonfield/)
 * [standardjson](https://github.com/audreyr/standardjson)
+* [django-jsonfield](https://github.com/bradjasper/django-jsonfield/)
 
 Tools used in developing, testing, and/or rendering this package:
 
