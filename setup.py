@@ -31,11 +31,12 @@ if sys.argv[-1] == 'publish':
     os.system('python setup.py bdist_wheel upload')
     sys.exit()
 
-if sys.argv[-1] == 'tag':
-    print("Tagging the version on github:")
-    os.system("git tag -a %s -m 'version %s'" % (version, version))
-    os.system("git push --tags")
-    sys.exit()
+# bumpversion does this
+# if sys.argv[-1] == 'tag':
+#     print("Tagging the version on github:")
+#     os.system("git tag -a %s -m 'version %s'" % (version, version))
+#     os.system("git push --tags")
+#     sys.exit()
 
 readme = open('README.md').read()
 history = open('HISTORY.rst').read().replace('.. :changelog:', '')
