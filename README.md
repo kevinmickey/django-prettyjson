@@ -2,7 +2,7 @@
 
 [![PyPi Version](https://badge.fury.io/py/django-prettyjson.png)](https://badge.fury.io/py/django-prettyjson) [![Build Status](https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master)](https://travis-ci.org/kevinmickey/django-prettyjson)
 
-Enables pretty JSON viewer in Django forms, admin, or templates
+Enables pretty JSON viewer in Django forms, admin, or templates.  The viewer is adapted from [jQuery JSONView](https://github.com/yesmeck/jquery-jsonview).  It is compatible with almost anything: JSON stored in a string, a jsonfield (using django.contrib.postgres or [django-jsonfield](https://github.com/bradjasper/django-jsonfield/)), or any python object that can be serialized to JSON (using [standardjson](https://github.com/audreyr/standardjson)).
 
 ## Demo
 
@@ -95,7 +95,6 @@ Dependencies, parts of code, and/or sources of inspiration:
 
 * [jQuery JSONView](https://github.com/yesmeck/jquery-jsonview)
 * [standardjson](https://github.com/audreyr/standardjson)
-* [django-jsonfield](https://github.com/bradjasper/django-jsonfield/)
 
 Tools used in developing, testing, and/or rendering this package:
 
