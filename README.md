@@ -91,7 +91,7 @@ Dependencies, parts of code, and/or sources of inspiration:
 
 * [jQuery JSONView](https://github.com/yesmeck/jquery-jsonview)
 * [django-jsonfield](https://github.com/bradjasper/django-jsonfield/)
-
+* [standardjson](https://github.com/audreyr/standardjson)
 
 Tools used in developing, testing, and/or rendering this package:
 
