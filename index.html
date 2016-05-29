@@ -36,8 +36,7 @@
 
 <p><a href="https://badge.fury.io/py/django-prettyjson"><img src="https://badge.fury.io/py/django-prettyjson.png" alt="PyPi Version"></a> <a href="https://travis-ci.org/kevinmickey/django-prettyjson"><img src="https://travis-ci.org/kevinmickey/django-prettyjson.svg?branch=master" alt="Build Status"></a></p>
 
-<p>Enables pretty JSON viewer in Django forms, admin, or templates</p>
-
+<p>Enables pretty JSON viewer in Django forms, admin, or templates.  The viewer is adapted from <a href="https://github.com/yesmeck/jquery-jsonview">jQuery JSONView</a>.  It is compatible with almost anything: JSON stored in a string, a jsonfield (using django.contrib.postgres or <a href="https://github.com/bradjasper/django-jsonfield/">django-jsonfield</a>), or any python object that can be serialized to JSON (using <a href="https://github.com/audreyr/standardjson">standardjson</a>).</p>
 <h2>
 <a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
 
@@ -65,7 +64,6 @@
 
 <p>Add <code>'prettyjson'</code> to <code>INSTALLED_APPS</code> in <code>settings.py</code>.
 
-<!-- just copy paste from github -->
 <div class="highlight highlight-source-python"><pre><span class="pl-c1">INSTALLED_APPS</span> <span class="pl-k">=</span> (
   <span class="pl-c1">...</span>,
   <span class="pl-s"><span class="pl-pds">'</span>prettyjson<span class="pl-pds">'</span></span>,
@@ -76,7 +74,7 @@
 
 <p>In a form or admin of a model, enable a pretty JSON viewer for a particular field:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> prettyjson
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> prettyjson <span class="pl-k">import</span> PrettyJSONWidget
 
 <span class="pl-k">class</span> <span class="pl-en">JsonForm</span>(<span class="pl-e">forms</span>.<span class="pl-e">ModelForm</span>):
   <span class="pl-k">class</span> <span class="pl-en">Meta</span>:
@@ -87,13 +85,15 @@
     }
 
 <span class="pl-k">class</span> <span class="pl-en">JsonAdmin</span>(<span class="pl-e">admin</span>.<span class="pl-e">ModelAdmin</span>):
-  form <span class="pl-k">=</span> JsonAdminForm</pre></div>
+  form <span class="pl-k">=</span> JsonForm</pre></div>
 
 <p>Enable pretty JSON viewer for every JSONField of a model:</p>
 
-<div class="highlight highlight-source-python"><pre><span class="pl-k">class</span> <span class="pl-en">JsonAdmin</span>(<span class="pl-e">admin</span>.<span class="pl-e">ModelAdmin</span>):
+<div class="highlight highlight-source-python"><pre><span class="pl-k">from</span> django.contrib.postgres.fields <span class="pl-k">import</span> JSONField
+
+<span class="pl-k">class</span> <span class="pl-en">JsonAdmin</span>(<span class="pl-e">admin</span>.<span class="pl-e">ModelAdmin</span>):
   formfield_overrides <span class="pl-k">=</span> {
-    jsonfield.JSONField: {<span class="pl-s"><span class="pl-pds">'</span>widget<span class="pl-pds">'</span></span>: PrettyJSONWidget }
+    JSONField: {<span class="pl-s"><span class="pl-pds">'</span>widget<span class="pl-pds">'</span></span>: PrettyJSONWidget }
   }</pre></div>
 
 <p>In templates, you can also enable a pretty JSON viewer.  Use the <code>prettyjson</code> template tag with a string JSON or with objects (dicts, QuerySets, etc.) that can be serialized to a JSON.  Note that the template tag must be loaded using <code>{% load prettyjson %}</code>.  It also has CSS and JS that must be included using <code>{% prettyjson_setup %}</code>.</p>
@@ -114,6 +114,8 @@
   <span class="pl-e">{%</span> <span class="pl-s">prettyjson</span> <span class="pl-s">'{}'</span> <span class="pl-e">%}</span>
 <span class="pl-e">{%</span> <span class="pl-k">endblock</span> <span class="pl-e">%}</span></pre></div>
 
+<p>The setup includes jQuery, loaded as django.jQuery to avoid namespace conflict.  If your page already includes jQuery, use <code>{% prettyjson_setup jquery=False %}</code> to avoid loading jQuery a second time.</p>
+
 <h2>
 <a id="running-tests" class="anchor" href="#running-tests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Tests</h2>
 
@@ -130,7 +132,7 @@
 
 <ul>
 <li><a href="https://github.com/yesmeck/jquery-jsonview">jQuery JSONView</a></li>
-<li><a href="https://github.com/bradjasper/django-jsonfield/">django-jsonfield</a></li>
+<li><a href="https://github.com/audreyr/standardjson">standardjson</a></li>
 </ul>
 
 <p>Tools used in developing, testing, and/or rendering this package:</p>
