@@ -13,3 +13,8 @@ History
 
 * Switched to using standardjson for encoding objects
 * Added setup option for those with jquery already loaded
+
+0.2.1 (2016-07-01)
+++++++++++++++++++
+
+* Fixed manifest
