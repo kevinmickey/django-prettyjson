@@ -54,7 +54,8 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-
+        'django>=1.8',
+        'standardjson>=0.3.1'
     ],
     license="BSD",
     zip_safe=False,
