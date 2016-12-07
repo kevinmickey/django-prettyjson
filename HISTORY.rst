@@ -18,3 +18,8 @@ History
 ++++++++++++++++++
 
 * Fixed manifest
+
+0.2.2 (2016-12-07)
+++++++++++++++++++
+
+* Added dependencies to setup.py
