@@ -79,6 +79,17 @@ In templates, you can also enable a pretty JSON viewer.  Use the `prettyjson` te
 
 The setup includes jQuery, loaded as django.jQuery to avoid namespace conflict.  If your page already includes jQuery, use `{% prettyjson_setup jquery=False %}` to avoid loading jQuery a second time.
 
+### Configure Rendering
+
+By default the jsonwidget will render as a raw string with a button to click to change it to parsed json. For it to render as parsed json initially, you can pass an argument:
+
+```python
+class JsonAdmin(admin.ModelAdmin):
+  formfield_overrides = {
+    JSONField: {'widget': PrettyJSONWidget(attrs={'initial': 'parsed'})}
+  }
+```
+
 ## Running Tests
 
 In development.
