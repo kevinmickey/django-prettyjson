@@ -23,3 +23,9 @@ History
 ++++++++++++++++++
 
 * Added dependencies to setup.py
+
+0.3.0 (2017-05-23)
+++++++++++++++++++
+
+* Added "initial" option to show raw or parsed initial
+* Requires six
