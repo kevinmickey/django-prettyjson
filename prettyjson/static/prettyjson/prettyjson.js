@@ -23,8 +23,6 @@ parserawbutton.click(function(e){
       rawarea.hide();
       widget.find('.parsed').show();
       parsedarea.JSONView(rawarea.val(), {strict: true}).css({
-        width: rawarea.css('width'),
-        height: rawarea.css('height'),
         overflow: "auto",
         resize: "both"
       });
@@ -37,10 +35,7 @@ parserawbutton.click(function(e){
   } else {
     // Clicked Show raw
     rawarea.val(JSON.stringify(JSON.parse(rawarea.val()),null,2));
-    widget.find('textarea').show().css({
-      width: parsedarea.css('width'),
-      height: parsedarea.css('height')
-    });
+    widget.find('textarea').show();
     widget.find('.parsed').hide();
     $(e.target).text('Show parsed');
   }
