@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+Django = ">=1.8"
+standardjson = ">=0.3.1"
+six = ">=1.10.0"
+
+[dev-packages]
+bumpversion = "*"
+wheel = "*"
+
+[requires]
+python_version = "3.6"
