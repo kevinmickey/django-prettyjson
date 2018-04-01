@@ -29,3 +29,8 @@ History
 
 * Added "initial" option to show raw or parsed initial
 * Requires six
+
+0.3.1 (2018-04-01)
+++++++++++++++++++
+
+* Allows CSS control of parsed widget

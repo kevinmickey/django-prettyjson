@@ -7,3 +7,6 @@ form .jsonview ul {
 .parsed {
   display: none;
 }
+div.parsed {
+  height: 25em;
+}
