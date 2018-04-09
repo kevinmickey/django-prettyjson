@@ -2,9 +2,7 @@
 
 import json
 
-from django.conf import settings
 from django.template import Library
-from django.forms.widgets import Media
 from django.utils.safestring import mark_safe
 
 import six
@@ -18,12 +16,9 @@ register = Library()
 @register.simple_tag
 def prettyjson_setup(jquery=True):
     widget = PrettyJSONWidget()
-    extra = '' if settings.DEBUG else '.min'
-    if jquery:
-        media = Media(js=('admin/js/vendor/jquery/jquery%s.js' % extra,
-                          'admin/js/jquery.init.js',)) + widget.media
-    else:
-        media = widget.media
+    media = widget.media
+    if not jquery:
+        media._js = media._js[2:]
     return mark_safe(str(media))
 
 
