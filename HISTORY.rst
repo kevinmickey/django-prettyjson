@@ -34,3 +34,8 @@ History
 ++++++++++++++++++
 
 * Allows CSS control of parsed widget
+
+0.3.2 (2018-04-09)
+++++++++++++++++++
+
+* Fixes widget media order
