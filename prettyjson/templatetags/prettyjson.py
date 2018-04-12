@@ -25,7 +25,7 @@ def prettyjson_setup(jquery=True):
 @register.simple_tag
 def prettyjson(obj):
     data = obj
-    if isinstance(object, six.string_types):
+    if isinstance(obj, six.string_types):
         data = json.loads(obj)
     widget = PrettyJSONWidget()
     return mark_safe(widget.render(name=None,
