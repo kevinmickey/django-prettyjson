@@ -114,7 +114,7 @@ To run a subset of tests::
 Publishing
 ----------
 
-1. `pipenv run bumpversion [major,minor,patch]` - Bump version, commit to git, and add tag
-2. Update changelog, and then `git commit --amend`
+1. Update changelog and commit to git (or stage and use --allow-dirty in bumpversion)
+2. `pipenv run bumpversion [major,minor,patch]` - Bump version, commit to git, and add tag
 3. `git push origin` and `git push origin --tags`
 4. `pipenv run make release` - cleans and publishes to pypi
