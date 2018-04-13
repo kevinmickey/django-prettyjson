@@ -39,3 +39,8 @@ History
 ++++++++++++++++++
 
 * Fixes widget media order
+
+0.3.3 (2018-04-13)
+++++++++++++++++++
+
+* Fixes string passed as parameter
