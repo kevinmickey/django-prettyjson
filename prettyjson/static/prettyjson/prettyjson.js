@@ -5,10 +5,7 @@ if (typeof jQuery !== 'undefined' || typeof(django.jQuery) !== 'undefined') {
 
 $( document ).ready(function() {
 
-var jsonWidget = $('.jsonwidget');
-var parserawbutton = $('.parseraw');
-
-parserawbutton.click(function(e){
+$('button.parseraw').click(function(e){
   var widget = $(e.target).closest('.jsonwidget');
   var rawarea = widget.find('textarea');
   var parsedarea = widget.find('div.parsed');
@@ -50,9 +47,11 @@ $('button.parsed').click(function(e){
   }
 });
 
-if (jsonWidget.attr("data-initial") == "parsed") {
-  parserawbutton.click();
-}
+$('.jsonwidget').each(function(i) {
+  if ($(this).attr('data-initial') == 'parsed') {
+    $(this).find('button.parseraw').click();
+  }
+});
 
 });
 })((typeof jQuery !== 'undefined') ? jQuery : django.jQuery);
