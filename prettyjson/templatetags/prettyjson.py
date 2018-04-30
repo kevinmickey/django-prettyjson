@@ -23,10 +23,11 @@ def prettyjson_setup(jquery=True):
 
 
 @register.simple_tag
-def prettyjson(obj):
+def prettyjson(obj, name="", **kwargs):
     data = obj
     if isinstance(obj, six.string_types):
         data = json.loads(obj)
-    widget = PrettyJSONWidget()
-    return mark_safe(widget.render(name=None,
-                     value=(json.dumps(data, ensure_ascii=False, cls=StandardJSONEncoder))))
+    widget = PrettyJSONWidget(attrs=kwargs)
+    return mark_safe(widget.render(name=name,
+                     value=(json.dumps(data, ensure_ascii=False, cls=StandardJSONEncoder)),
+                     attrs=widget.attrs))
