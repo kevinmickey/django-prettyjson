@@ -90,6 +90,12 @@ class JsonAdmin(admin.ModelAdmin):
   }
 ```
 
+Or, in a template tag:
+
+```python
+{% prettyjson mydict initial='parsed' %}
+```
+
 ## Running Tests
 
 In development.
