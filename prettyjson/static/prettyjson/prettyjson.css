@@ -8,5 +8,5 @@ form .jsonview ul {
   display: none;
 }
 div.parsed {
-  height: 25em;
+  max-height: 25em;
 }
