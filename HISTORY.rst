@@ -44,3 +44,10 @@ History
 ++++++++++++++++++
 
 * Fixes string passed as parameter
+
+0.4.0 (2018-04-30)
+++++++++++++++++++
+
+* Allows attrs in template tag
+* Fix JS for initial parsed with multiple widgets
+* Change parsed CSS height to max-height
