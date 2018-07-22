@@ -116,4 +116,4 @@ Dependencies, parts of code, and/or sources of inspiration:
 Tools used in developing, testing, and/or rendering this package:
 
 * [Cookiecutter](https://github.com/audreyr/cookiecutter)
-* [cookiecutter-djangopackage] (https://github.com/pydanny/cookiecutter-djangopackage)
+* [cookiecutter-djangopackage](https://github.com/pydanny/cookiecutter-djangopackage)
