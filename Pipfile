@@ -11,6 +11,10 @@ six = ">=1.10.0"
 [dev-packages]
 bumpversion = "*"
 wheel = "*"
+coverage = "*"
+mock = ">=1.0.1"
+"flake8" = ">=2.1.0"
+tox = ">=1.7.0"
 
 [requires]
 python_version = "3.6"
