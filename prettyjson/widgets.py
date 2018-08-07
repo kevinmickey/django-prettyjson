@@ -6,7 +6,7 @@ class PrettyJSONWidget(widgets.Textarea):
 
     DEFAULT_ATTR = 'raw'
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, **kwargs):
         html = super(PrettyJSONWidget, self).render(name, value, attrs)
 
         start_as = self.attrs.get("initial", self.DEFAULT_ATTR)
