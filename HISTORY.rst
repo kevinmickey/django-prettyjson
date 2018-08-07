@@ -51,3 +51,8 @@ History
 * Allows attrs in template tag
 * Fix JS for initial parsed with multiple widgets
 * Change parsed CSS height to max-height
+
+0.4.1 (2018-08-07)
+++++++++++++++++++
+
+* Fix widget for Django 2.1
