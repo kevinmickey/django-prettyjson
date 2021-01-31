@@ -49,7 +49,10 @@ class JsonAdmin(admin.ModelAdmin):
 Enable pretty JSON viewer for every JSONField of a model:
 
 ```python
+\#django < 3.1
 from django.contrib.postgres.fields import JSONField
+\#django >= 3.1
+from django.db.models import JSONField 
 
 class JsonAdmin(admin.ModelAdmin):
   formfield_overrides = {
