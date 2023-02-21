@@ -27,7 +27,12 @@ def prettyjson(obj, name="", **kwargs):
     data = obj
     if isinstance(obj, six.string_types):
         data = json.loads(obj)
+
     widget = PrettyJSONWidget(attrs=kwargs)
-    return mark_safe(widget.render(name=name,
-                     value=(json.dumps(data, ensure_ascii=False, cls=StandardJSONEncoder)),
-                     attrs=widget.attrs))
+    return mark_safe(
+        widget.render(
+            name=name,
+            value=(json.dumps(data, ensure_ascii=False, cls=StandardJSONEncoder)),
+            attrs=widget.attrs
+        )
+    )

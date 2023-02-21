@@ -19,11 +19,12 @@ def get_version(*file_paths):
         return version_match.group(1)
     raise RuntimeError('Unable to find version string.')
 
+
 version = get_version('prettyjson', '__init__.py')
 
 if sys.argv[-1] == 'publish':
     try:
-        import wheel
+        import wheel  # noqa
     except ImportError:
         print('Wheel library missing. Please run "pip install wheel"')
         sys.exit()

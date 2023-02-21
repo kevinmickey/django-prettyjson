@@ -1,0 +1,30 @@
+# English translation for django-prettyjson.
+# Copyright (C) 2024
+# This file is distributed under the same license as the django-prettyjson package.
+# Manuel Jesus Barrera <mj.barrera8@gmail.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-02 12:29+0000\n"
+"PO-Revision-Date: 2018-07-04 21:21+0200\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: xls-to-po 1.0\n"
+
+#: prettyjson/widgets.py:27
+msgid "Show parsed"
+msgstr ""
+
+#: prettyjson/widgets.py:28
+msgid "Show raw"
+msgstr ""
+
+#: prettyjson/widgets.py:29
+msgid "Collapse"
+msgstr ""
+
+#: prettyjson/widgets.py:30
+msgid "Expand"
+msgstr ""
