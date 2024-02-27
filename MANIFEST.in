@@ -3,4 +3,5 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.md
+recursive-include prettyjson/locale *.mo *.po
 recursive-include prettyjson *.html *.png *.gif *js *.css *jpg *jpeg *svg *py
