@@ -92,7 +92,7 @@ class JsonAdmin(admin.ModelAdmin):
 
 Or, in a template tag:
 
-```python
+```htmldjango
 {% prettyjson mydict initial='parsed' %}
 ```
 
