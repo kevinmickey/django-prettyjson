@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.forms import widgets
+from django.utils.safestring import mark_safe
 
 
 class PrettyJSONWidget(widgets.Textarea):
@@ -14,11 +15,19 @@ class PrettyJSONWidget(widgets.Textarea):
         if (start_as not in self._allowed_attrs()):
             start_as = self.DEFAULT_ATTR
 
-        return ('<div class="jsonwidget" data-initial="' + start_as + '"><p><button class="parseraw" '
-                'type="button">Show parsed</button> <button class="parsed" '
-                'type="button">Collapse all</button> <button class="parsed" '
-                'type="button">Expand all</button></p>' + html + '<div '
-                'class="parsed"></div></div>')
+        return mark_safe(
+            f"""
+            <div class="jsonwidget" data-initial="{start_as}">
+                <p>
+                    <button class="parseraw" type="button">Show parsed</button>
+                    <button class="parsed" type="button">Collapse all</button>
+                    <button class="parsed" type="button">Expand all</button>
+                </p>
+                {html}
+                <div class="parsed"></div>
+            </div>
+            """
+        )
 
     @staticmethod
     def _allowed_attrs():
