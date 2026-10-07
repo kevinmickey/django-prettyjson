@@ -46,14 +46,19 @@ class JsonAdmin(admin.ModelAdmin):
   form = JsonForm
 ```
 
-Enable pretty JSON viewer for every JSONField of a model:
+Enable pretty JSON viewer for every JSONField of a model. For Django 3.1 and later, use the built-in model JSONField:
 
 ```python
-from django.contrib.postgres.fields import JSONField
+from django.contrib import admin
+from django.db.models import JSONField
+from prettyjson import PrettyJSONWidget
+
+# For Django < 3.1, replace the JSONField import above with:
+# from django.contrib.postgres.fields import JSONField
 
 class JsonAdmin(admin.ModelAdmin):
   formfield_overrides = {
-    JSONField: {'widget': PrettyJSONWidget }
+    JSONField: {'widget': PrettyJSONWidget}
   }
 ```
 
